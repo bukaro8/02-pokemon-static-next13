@@ -13,9 +13,17 @@ interface id {
 	name: string;
 }
 const PokemonByName = async ({ params: { name } }: Props) => {
-	const pokemon = await getPokemonByName(name);
-	return <PokemonDetailsInside pokemon={pokemon} />;
+	const { data } = await pokeApi.get<PokemonListResponse>('pokemon?limit=150');
+	const allPokemons = data;
+	const pokeArray = allPokemons.results.map((el) => el.name);
+	if (pokeArray.includes(name)) {
+		const pokemon = await getPokemonByName(name);
+		return <PokemonDetailsInside pokemon={pokemon} />;
+	} else {
+		return <h1 className='text-white'>wrong name</h1>;
+	}
 };
+
 const getPokemon = async () => {
 	const { data } = await pokeApi.get<PokemonListResponse>('pokemon?limit=150');
 
