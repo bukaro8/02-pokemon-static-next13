@@ -10,6 +10,9 @@ interface id {
 	id: string;
 }
 const PokemonDetails = async ({ params: { id } }: Props) => {
+	if (parseInt(id) > 151 || parseInt(id) < 1) {
+		return <h1>not valid id</h1>;
+	}
 	const pokemon = await getPokemon(id);
 	return <PokemonDetailsInside pokemon={pokemon} />;
 };
