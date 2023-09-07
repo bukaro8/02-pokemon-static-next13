@@ -5,7 +5,7 @@ import PokemonDetailsInside from '@app/pokemon/[id]/PokemonDetails';
 import getPokemonByName from '../getPokemonByName';
 import { PokemonListResponse } from '@interfaces';
 import pokeApi from '@api/pokeApi';
-import async from '../../page';
+
 interface Props {
 	params: id;
 }
@@ -21,9 +21,7 @@ const getPokemon = async () => {
 
 	return data;
 };
-// for (let i = 0; i <= 151; i++) {
-// 	accum.push({ params: { id: i.toString() } });
-// }
+
 const iterador = async () => {
 	const accum = [];
 	const allPokemons = await getPokemon();
