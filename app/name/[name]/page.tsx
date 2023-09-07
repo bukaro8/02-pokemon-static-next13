@@ -32,11 +32,11 @@ const iterador = async () => {
 	return accum;
 };
 
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
-	const arrayParams = await iterador();
-	return {
-		paths: arrayParams,
-		fallback: false,
-	};
-};
+// export const getStaticPaths: GetStaticPaths = async (ctx) => {
+// 	const arrayParams = await iterador();
+// 	return {
+// 		paths: arrayParams,
+// 		fallback: false,
+// 	};
+// };
 export default PokemonByName;
